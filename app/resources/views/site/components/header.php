@@ -10,5 +10,10 @@
 
 <body>
     <header>
-        
+        <nav>
+            <ul>
+                <li><a href="home">Main</a></li>
+                <li><a href="categories">Categories</a></li>
+            </ul>
+        </nav>
     </header>
