@@ -1,9 +1,7 @@
-<?php require_once 'app/resources/views/site/components/header.php'; ?>
+<?php require_once 'app/resources/views/admin/components/header.php'; ?>
 
 <main>
-    <ul>
-        <li><a href="categoryCreate">Create</a></li>
-    </ul>
+    <div><a href="categoryCreate">Create</a></div>
     <table>
     <?php foreach($categories as $c) { ?>
         <tr>
@@ -21,4 +19,4 @@
     </table>
 </main>
 
-<?php require_once 'app/resources/views/site/components/footer.php' ?>
+<?php require_once 'app/resources/views/admin/components/footer.php' ?>

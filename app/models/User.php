@@ -16,7 +16,27 @@ class User extends Model
         'phone',
         'password'
     ];
-    //add new user for table users
+
+    // read all users for admin
+    public static function selectAll() 
+    {
+        $stmt = User::builder()->prepare('SELECT * FROM users');
+        $stmt->execute();
+        
+        return $stmt->fetchAll();
+    }
+
+    // update user role
+    public static function updateRole($post)
+    {
+        $stmt = User::builder()->prepare('UPDATE users SET role = :role WHERE id = :id');
+        $stmt->execute([
+            'id' => $post['update_id'],
+            'role' => $post['role']
+        ]);
+    }
+
+    // add new user for table users
     public static function insertUser($post)
     {
         try {
@@ -42,7 +62,7 @@ class User extends Model
                     'email' => $post['email'],
                     'phone' => $post['phone'],
                     'password' => $hash
-                ]);//три окремі перевірки на емейл телефон і довж паролю і виводити помилки на вю і зробити сторінку профілю з можливістю редагування
+                ]);// три окремі перевірки на емейл телефон і довж паролю і виводити помилки на вю і зробити сторінку профілю з можливістю редагування
             } else {
                 throw new Exception("Не всі поля заповнені");
             }
@@ -51,7 +71,7 @@ class User extends Model
         }
     }
 
-    //check user data for enter
+    // check user data for enter
     public static function login($post)
     { 
         try {
@@ -68,6 +88,7 @@ class User extends Model
             $result = '';
             // self::dd($_SESSION, $user);
             if($user && password_verify($post['password'], $user['password'])) {
+                unset($user['password']);
                 $_SESSION['user'] = $user;
             } else {
                 throw new Exception("Пароль або логін введено некоректно, введіть коректні дані");
@@ -79,7 +100,7 @@ class User extends Model
         }
     }
 
-    //cabinet info
+    // cabinet info
     public static function update($post) 
     {
         $stmt = User::builder()->prepare('UPDATE users SET name = :name, surname = :surname, phone = :phone, email = :email  WHERE id = :id');
@@ -90,17 +111,18 @@ class User extends Model
             'email' => $post['email'],
             'id' => $post['id']
         ]);
-        //return new data user
+        // return new data user
         $stmt = User::builder()->prepare('SELECT * FROM users WHERE id = :id');
         $stmt->execute([':id' => $post['id']]);
         return $stmt->fetch();
     }
 
-    //delete user
+    // delete user
     public static function delete($id) 
     {
         $stmt = User::builder()->prepare('DELETE FROM users WHERE id = :id');
         $stmt->execute(['id' => $id]);
     }
+
 
 }
