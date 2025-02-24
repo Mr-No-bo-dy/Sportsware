@@ -18,6 +18,9 @@
                     <li><a href="register">Sing Up</a></li>
                     <li><a href="login">Sing In</a></li>
                 <?php } else { ?>
+                    <?php if($_SESSION['user']['role'] == 'admin') { ?>
+                        <li><a href="admin/users">Admin</a></li>
+                    <?php }?>
                     <li><a href="cabinet">Cabinet</a></li>
                     <li><a href="logout">Logout</a></li>
                 <?php }?>

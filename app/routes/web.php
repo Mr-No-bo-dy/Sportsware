@@ -5,12 +5,12 @@ $urlRoutes = [
     '' => 'site/home/index',
     'home' => 'site/home/index',
 
-    'categories' => 'admin/category/index',
-    'categoryCreate' => 'admin/category/create',
-    'categorySave' => 'admin/category/save',
-    'categoryEdit' => 'admin/category/edit',
-    'categoryUpdate' => 'admin/category/update',
-    'categoryDelete' => 'admin/category/delete',
+    'admin/categories' => 'admin/category/index',
+    'admin/categoryCreate' => 'admin/category/create',
+    'admin/categorySave' => 'admin/category/save',
+    'admin/categoryEdit' => 'admin/category/edit',
+    'admin/categoryUpdate' => 'admin/category/update',
+    'admin/categoryDelete' => 'admin/category/delete',
     
     'register' => 'site/user/register',
     'login' => 'site/user/login',
@@ -18,5 +18,7 @@ $urlRoutes = [
     'updateUser' => 'site/user/update',
     'deleteUser' => 'site/user/delete',
     'logout' => 'site/user/logout',
+
+    'admin/users' => 'admin/user/index',
     
 ];

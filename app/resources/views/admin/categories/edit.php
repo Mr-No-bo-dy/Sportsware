@@ -1,4 +1,4 @@
-<?php require_once 'app/resources/views/site/components/header.php'; ?>
+<?php require_once 'app/resources/views/admin/components/header.php'; ?>
 
 <main>
     <h1>Edit category</h1>
@@ -16,4 +16,4 @@
    </form>
 </main>
 
-<?php require_once 'app/resources/views/site/components/footer.php' ?>
+<?php require_once 'app/resources/views/admin/components/footer.php' ?>
