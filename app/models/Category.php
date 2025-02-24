@@ -32,7 +32,7 @@ class Category extends Model
             'description' => $post['description']
         ]);
     }
-
+    //select category for update
     public static function select($id) 
     {
         $stmt = Category::builder()->prepare('SELECT * FROM categories WHERE id = :id');

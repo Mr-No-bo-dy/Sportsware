@@ -39,6 +39,7 @@ class CategoryController extends Controller
 
     }
 
+    //update categories
     public function update() 
     {
         Category::update($this->post());
@@ -46,6 +47,7 @@ class CategoryController extends Controller
         return $this->redirect("categories");
     }
 
+    //delete categories
     public function delete()
     {
         Category::delete($this->post('id'));
