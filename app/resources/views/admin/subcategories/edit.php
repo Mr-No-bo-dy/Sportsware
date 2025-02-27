@@ -4,6 +4,14 @@
     <h1>Edit subcategory</h1>
    <form action="subcategoryUpdate" method="post">
         <label>
+            Category
+            <select name="category_id">
+                <?php foreach ($categories as $с) { ?>
+                    <option value="<?= $с['id'] ?>" <?= $subcategory['category_id'] == $с['id'] ? 'selected' : '' ?>><?= $с['title'] ?></option>
+                <?php } ?>
+            </select>
+        </label>
+        <label>
             Title
             <input type="text" name="title" value="<?= $subcategory['title'] ?>">
         </label>

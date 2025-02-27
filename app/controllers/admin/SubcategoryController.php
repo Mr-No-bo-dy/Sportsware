@@ -38,8 +38,9 @@ class SubcategoryController extends Controller
         $id = $this->get('id');
 
         $subcategory = Subcategory::select($id);
-        // $this->dd($category);
-        return $this->view('admin/subcategories/edit', compact('subcategory'));
+        $categories = Category::selectAll();
+
+        return $this->view('admin/subcategories/edit', compact('subcategory', 'categories'));
 
     }
 

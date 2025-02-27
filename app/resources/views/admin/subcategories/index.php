@@ -4,6 +4,7 @@
     <div><a href="subcategoriesCreate">Create subcategory</a></div>
     <table>
     <?php foreach($subcategories as $s) { ?>
+        
         <tr>
             <td><?=$s['title']?></td>
             <td><?=$s['description']?></td>

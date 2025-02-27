@@ -47,11 +47,12 @@ class Subcategory extends Model
     //update 
     public static function update($post) 
     {
-        $stmt = Subcategory::builder()->prepare('UPDATE subcategories SET title = :title, description = :description WHERE id = :id');
+        $stmt = Subcategory::builder()->prepare('UPDATE subcategories SET title = :title, description = :description, category_id = :category_id WHERE id = :id');
         $stmt->execute([
             'title' => $post['title'],
             'description' => $post['description'],
-            'id' => $post['id']
+            'id' => $post['id'],
+            'category_id' => $post['category_id']
         ]);
     }
 
