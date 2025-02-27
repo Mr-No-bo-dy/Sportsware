@@ -12,6 +12,13 @@ $urlRoutes = [
     'admin/categoryUpdate' => 'admin/category/update',
     'admin/categoryDelete' => 'admin/category/delete',
     
+    'admin/subcategories' => 'admin/subcategory/index',
+    'admin/subcategoriesCreate' => 'admin/subcategory/create',
+    'admin/subcategorySave' => 'admin/subcategory/save',
+    'admin/subcategoryEdit' => 'admin/subcategory/edit',
+    'admin/subcategoryUpdate' => 'admin/subcategory/update',
+    'admin/subcategoryDelete' => 'admin/subcategory/delete',
+
     'register' => 'site/user/register',
     'login' => 'site/user/login',
     'cabinet' => 'site/user/cabinet',

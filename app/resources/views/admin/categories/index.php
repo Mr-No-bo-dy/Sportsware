@@ -1,7 +1,7 @@
 <?php require_once 'app/resources/views/admin/components/header.php'; ?>
 
 <main>
-    <div><a href="categoryCreate">Create</a></div>
+    <div><a href="categoryCreate">Create category</a></div>
     <table>
     <?php foreach($categories as $c) { ?>
         <tr>

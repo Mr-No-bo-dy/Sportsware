@@ -14,6 +14,7 @@
             <ul>
                 <li><a href="../home">Site</a></li>
                 <li><a href="categories">Categories</a></li>
+                <li><a href="subcategories">Subategories</a></li>
                 <li><a href="users">Admin</a></li>
                 <li><a href="../cabinet">Cabinet</a></li>
                 <li><a href="../logout">Logout</a></li>
