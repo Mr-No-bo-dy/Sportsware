@@ -13,6 +13,7 @@
         <nav>
             <ul>
                 <li><a href="home">Main</a></li>
+                <li><a href="catalog">Catalog</a></li>
                 <?php if(!isset($_SESSION['user'])) { ?>
                     <li><a href="register">Sing Up</a></li>
                     <li><a href="login">Sing In</a></li>

@@ -16,7 +16,10 @@ class Subcategory extends Model
     public static function selectAll() 
     {
         // return object PDO
-        $stmt = Subcategory::builder()->prepare('SELECT s.*, c.title AS category_title FROM categories c JOIN subcategories s ON s.category_id = c.id');
+        $stmt = Subcategory::builder()->prepare('SELECT s.*, c.title AS category_title 
+            FROM categories c 
+            JOIN subcategories s 
+            ON s.category_id = c.id');
         $stmt->execute();
         
         return $stmt->fetchAll();

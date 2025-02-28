@@ -4,6 +4,8 @@ $urlRoutes = [
     // URI => directory / controller / method
     '' => 'site/home/index',
     'home' => 'site/home/index',
+    'catalog' => 'site/product/catalog',
+    'card' => 'site/product/card',
 
     'admin/categories' => 'admin/category/index',
     'admin/categoryCreate' => 'admin/category/create',
@@ -18,6 +20,13 @@ $urlRoutes = [
     'admin/subcategoryEdit' => 'admin/subcategory/edit',
     'admin/subcategoryUpdate' => 'admin/subcategory/update',
     'admin/subcategoryDelete' => 'admin/subcategory/delete',
+    
+    'admin/products' => 'admin/product/index',
+    'admin/productCreate' => 'admin/product/create',
+    'admin/productSave' => 'admin/product/save',
+    'admin/productEdit' => 'admin/product/edit',
+    'admin/productUpdate' => 'admin/product/update',
+    'admin/productDelete' => 'admin/product/delete',
 
     'register' => 'site/user/register',
     'login' => 'site/user/login',

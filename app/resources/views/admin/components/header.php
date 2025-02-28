@@ -13,6 +13,7 @@
         <nav>
             <ul>
                 <li><a href="../home">Site</a></li>
+                <li><a href="products">Products</a></li>
                 <li><a href="categories">Categories</a></li>
                 <li><a href="subcategories">Subategories</a></li>
                 <li><a href="users">Admin</a></li>
