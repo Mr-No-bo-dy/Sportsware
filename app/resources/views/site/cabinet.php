@@ -1,6 +1,6 @@
 <?php require_once 'app/resources/views/site/components/header.php'; ?>
 
-<main>
+<main class="wrapper">
     <h1>Hi, <?= $_SESSION['user']['name'] ?? 'guest' ?></h1>
     <form action="updateUser" method="post">
         <p>

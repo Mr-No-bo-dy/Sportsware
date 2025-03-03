@@ -4,6 +4,80 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+
+header {
+    padding: 10px 0;
+    background-color: #053345;
+}
+
 ul, ol {
     list-style: none;
 }
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+table {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+
+tr + tr {
+    border-top: 1px solid #ddd;
+}
+
+td {
+    padding: 10px 15px;
+}
+
+td + td {
+    border-left: 1px solid #ddd;
+}
+
+figure picture {
+    display: inline-block;
+    width: 15vw;
+    height: 15vw;
+}
+
+figure h2 {
+    min-height: 50px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.img_container {
+    max-width: 10vw;
+    max-height: 10vw;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+

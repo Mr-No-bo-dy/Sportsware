@@ -1,6 +1,6 @@
 <?php require_once 'app/resources/views/admin/components/header.php'; ?>
 
-<main>
+<main class="wrapper">
     <table>
     <?php foreach($users as $u) { ?>
         <tr>
@@ -10,11 +10,13 @@
             <td><?=$u['phone']?></td>
             <td>
                 <form action="users" method="post">
-                    <select name="role">
-                        <option value="customer" <?= ($u['role'] =='customer') ? 'selected' : ''; ?> >Customer</option>
-                        <option value="admin" <?= ($u['role'] =='admin') ? 'selected' : '';?>>Admin</option>
-                    </select>
-                    <button type="submit" name="update_id" value="<?= $u['id'] ?>">Update</button>
+                    <?php if($_SESSION['user']['id'] != $u['id']) { ?>
+                        <select name="role">
+                            <option value="customer" <?= ($u['role'] =='customer') ? 'selected' : ''; ?> >Customer</option>
+                            <option value="admin" <?= ($u['role'] =='admin') ? 'selected' : '';?>>Admin</option>
+                        </select>
+                        <button type="submit" name="update_id" value="<?= $u['id'] ?>">Update</button>
+                    <?php } ?>
                 </form>
             </td>
             <td>
