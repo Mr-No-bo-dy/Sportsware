@@ -62,12 +62,36 @@ class Product extends Model
 
     }
 
-    //select category for update
+    //select product for update
     public static function select($id) 
     {
         $stmt = Product::builder()->prepare('SELECT * FROM products WHERE id = :id');
         $stmt->execute(['id' => $id]);
         
         return $stmt->fetch();
+    }
+
+    //update 
+    public static function update($post, $fileName) 
+    {
+        $stmt = Product::builder()->prepare('UPDATE products 
+            SET title = :title, description = :description, subcategory_id = :subcategory_id, price = :price, color = :color, size = :size, image = :image
+            WHERE id = :id');
+        $stmt->execute([
+            'title' => $post['title'],
+            'description' => $post['description'],
+            'price' => $post['price'], 
+            'color' => $post['color'],
+            'size' => $post['size'],
+            'image' => $fileName,
+            'id' => $post['id'],
+            'subcategory_id' => $post['subcategory_id']
+        ]);
+    }
+
+    public static function delete($id)
+    {
+        $stmt = Product::builder()->prepare('DELETE FROM products WHERE id = :id');
+        $stmt->execute(['id' => $id]);
     }
 }

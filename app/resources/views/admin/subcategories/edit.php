@@ -1,6 +1,6 @@
 <?php require_once 'app/resources/views/admin/components/header.php'; ?>
 
-<main>
+<main class="wrapper">
     <h1>Edit subcategory</h1>
    <form action="subcategoryUpdate" method="post">
         <label>

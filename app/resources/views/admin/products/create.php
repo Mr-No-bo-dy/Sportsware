@@ -1,6 +1,6 @@
 <?php require_once 'app/resources/views/admin/components/header.php'; ?>
 
-<main>
+<main class="wrapper">
     <h1>Create products</h1>
    <form action="productSave" method="post" enctype="multipart/form-data">
         <label>

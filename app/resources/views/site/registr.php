@@ -1,6 +1,6 @@
 <?php require_once 'app/resources/views/site/components/header.php'; ?>
 
-<main>
+<main class="wrapper">
     <form action="register" method="post">
         <p>
             <label class="d-flex flex-center-col">

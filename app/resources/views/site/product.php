@@ -1,8 +1,8 @@
 <?php require_once 'app/resources/views/site/components/header.php'; ?>
 
-<main>
+<main class="wrapper">
     <picture>
-        <!-- <img src="<?= $product['img']?>" alt=""> -->
+        <img src="/sportsware/app/resources/img/products/<?=$product['image']?>" alt="">
     </picture>
     <h1><?= $product['title'] ?></h1>
     <p><?= $product['description'] ?></p>

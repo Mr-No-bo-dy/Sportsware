@@ -41,4 +41,39 @@ class ProductController extends Controller
         return $this->redirect("products");
 
     }
+
+    public function edit()
+    {
+        $id = $this->get('id');
+
+        $product = Product::select($id);
+        $subcategory = Subcategory::selectAll();
+
+        return $this->view('admin/products/edit', compact('subcategory', 'product'));
+
+    }
+
+    //update product
+    public function update() 
+    {
+        $id = $this->post('id');
+        
+        if(!empty($_FILES['image']['name'])) {
+            $pathArr = explode('/', $_FILES['image']['type']);
+            $fileName = $id . "." . $pathArr[1];
+            $filePath = 'app\resources\img\products\\' . $fileName;
+            move_uploaded_file($_FILES['image']['tmp_name'], $filePath);
+        }
+        
+        Product::update($this->post(), $fileName);
+        return $this->redirect("products");
+    }
+
+    //delete product
+    public function delete()
+    {
+        Product::delete($this->post('id'));
+
+        return $this->redirect("products");
+    }
 }

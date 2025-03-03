@@ -1,6 +1,6 @@
 <?php require_once 'app/resources/views/admin/components/header.php'; ?>
 
-<main>
+<main class="wrapper">
     <div><a href="subcategoriesCreate">Create subcategory</a></div>
     <table>
     <?php foreach($subcategories as $s) { ?>
