@@ -46,7 +46,7 @@ class Controller
     }
 
     // Get data from $_POST
-    public function post(string $key = null): mixed
+    public function post(mixed $key = null): mixed
     {
         $postData = [];
         if (!empty($_POST)) {
@@ -60,7 +60,7 @@ class Controller
     }
 
     // Get data from $_GET
-    public function get(string $key = null): mixed
+    public function get(mixed $key = null): mixed
     {
         $getData = [];
         if (!empty($_GET)) {
