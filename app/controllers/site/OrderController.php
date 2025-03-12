@@ -29,7 +29,8 @@ class OrderController extends Controller
                 "quantity" => 1 
             ];
         }
-        $this->dd($_SESSION['cart'][$id]);
+        // $this->dd($_SESSION['cart'][$id]);
+        return $this->redirect("card?id=$id");
     }
 
     //open cart
@@ -62,13 +63,13 @@ class OrderController extends Controller
 
         unset($_SESSION['cart'][$id]);
         
-        return $this->view('site/cart');
+        return $this->redirect('cart');
     }
     
     //redirect to create page
     public function createPage() 
     {
-        Order::save();
+        Order::saveViaTransaction();
 
         unset($_SESSION['cart']);
 

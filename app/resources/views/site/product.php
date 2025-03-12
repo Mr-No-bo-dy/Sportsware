@@ -13,9 +13,13 @@
             <p><?= $product['size'] ?></p>
             <p><?= $product['color'] ?></p>
             <p><?= $product['price'] ?></p>
-            <form action="addToCart" method="post">
-                <button type="submit" name="id" value="<?= $product['id'] ?>">add to cart</button>
-            </form>
+            <?php if(isset($_SESSION['user'])) { ?>
+                <form action="addToCart" method="post">
+                    <button type="submit" name="id" value="<?= $product['id'] ?>">add to cart</button>
+                </form>
+            <?php } else { ?>
+                <a href="login">Sing In</a>
+            <?php } ?>
         </div>
     </div>
 </main>

@@ -2,7 +2,7 @@
 
 <main class="wrapper">
     <h1>Кошик</h1>
-    <?php if(isset($_SESSION['cart']))  { ?>
+    <?php if(!empty($_SESSION['cart']))  { ?>
         <div class="d-flex">
             <div>
                 <?php foreach($_SESSION['cart'] as $prod => $p ) { ?>
