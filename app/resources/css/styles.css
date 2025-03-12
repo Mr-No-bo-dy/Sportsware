@@ -14,6 +14,17 @@ header {
     background-color: #053345;
 }
 
+main {
+    padding: 50px 0;
+}
+
+h1 {
+    padding-bottom: 30px;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
 ul, ol {
     list-style: none;
 }
@@ -75,9 +86,20 @@ figure h2 {
     max-height: 10vw;
 }
 
-.grid {
+.d-flex {
+    display: flex;
+}
+
+.grid,
+.grid-cart {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
+    align-items: center;
 }
 
+.grid-card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+}

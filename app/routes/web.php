@@ -6,6 +6,7 @@ $urlRoutes = [
     'home' => 'site/home/index',
     'catalog' => 'site/product/catalog',
     'card' => 'site/product/card',
+    'cart' => 'site/order/openCart',
 
     'admin/categories' => 'admin/category/index',
     'admin/categoryCreate' => 'admin/category/create',
@@ -27,6 +28,14 @@ $urlRoutes = [
     'admin/productEdit' => 'admin/product/edit',
     'admin/productUpdate' => 'admin/product/update',
     'admin/productDelete' => 'admin/product/delete',
+    
+    'admin/orders' => 'admin/order/index',
+
+    'addToCart' => 'site/order/addCart',
+    'quantity' => 'site/order/quantity',
+    'delete' => 'site/order/delete',
+    'orderSave' => 'site/order/createPage',
+    'succes' => 'site/order/succes',
 
     'register' => 'site/user/register',
     'login' => 'site/user/login',
