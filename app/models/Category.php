@@ -21,6 +21,19 @@ class Category extends Model
         
         return $stmt->fetchAll();
     }
+
+    public static function selectCategories() 
+    {
+        $stmt = Category::builder()->prepare('SELECT id, title FROM categories');
+        $stmt->execute();
+        $categories = $stmt->fetchAll();
+        $categoriesArr = [];
+        foreach($categories as $category) {
+            $categoriesArr[$category['id']] = $category['title'];
+        }
+        
+        return $categoriesArr;
+    }
     
     // create
     public static function insert($post) 

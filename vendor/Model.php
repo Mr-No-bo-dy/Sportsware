@@ -27,4 +27,16 @@ class Model
         echo '</pre>';
         die;
     }
+
+    //перевірка кількості полів фільрів
+    public static function addFilters($sql)
+    {
+        if(str_contains($sql, 'WHERE')) {
+            $addFilter = " AND";
+        } else {
+            $addFilter = " WHERE";
+        }
+        return $addFilter;
+        
+    }
 }
