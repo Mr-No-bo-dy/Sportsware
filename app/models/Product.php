@@ -17,11 +17,49 @@ class Product extends Model
         'image'
     ];
 
-    public static function selectAll() 
+    public static function selectAll($filters = [], $sort = 'new') 
     {
-        $stmt = Product::builder()->prepare('SELECT p.*, s.title AS subcategory 
-        FROM subcategories s
-        JOIN products p ON p.subcategory_id = s.id');
+        $sql = 'SELECT p.*, s.title AS subcategory 
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            JOIN categories c ON s.category_id = c.id';
+
+        if (!empty($filters['title'])) {
+            $sql .= self::addFilters($sql) . " p.title LIKE :title";
+        }
+        if (!empty($filters['category_id'])) {
+            $sql .= self::addFilters($sql) . " c.id = :id";
+        }
+        if (!empty($filters['maxPrice'])) {
+            $sql .= self::addFilters($sql) . " p.price <= :max";
+        }
+        if (!empty($filters['minPrice'])) {
+            $sql .= self::addFilters($sql) . " p.price >= :min";
+        }
+        
+        if ($sort == "new") {
+            $sql .= " ORDER BY p.id";
+        } else if ($sort == "priceDesc") {
+            $sql .= " ORDER BY p.price DESC";
+        } else if ($sort == "priceAsc") {
+            $sql .= " ORDER BY p.price ASC";
+        }
+
+        $stmt = Product::builder()->prepare($sql);
+
+        if(!empty($filters['title'])) {
+            $stmt->bindValue(":title", '%' . $filters['title'] . '%');
+        }
+        if(!empty($filters['category_id'])) {
+            $stmt->bindValue(":id", $filters['category_id']);
+        }
+        if(!empty($filters['maxPrice'])) {
+            $stmt->bindValue(":max", $filters['maxPrice']);
+        }
+        if(!empty($filters['minPrice'])) {
+            $stmt->bindValue(":min", $filters['minPrice']);
+        }
+
         $stmt->execute();
 
         return $stmt->fetchAll();
@@ -38,7 +76,6 @@ class Product extends Model
     //get id image
     public static function getLastId() 
     {
-        // return Product::builder()->lastInsertId() + 1;
         $stmt = Product::builder()->prepare('SELECT MAX(id) FROM products');
         $stmt->execute();
         return $stmt->fetchColumn() + 1;
@@ -70,7 +107,7 @@ class Product extends Model
         
         return $stmt->fetch();
     }
-
+    
     //update 
     public static function update($post, $fileName) 
     {
