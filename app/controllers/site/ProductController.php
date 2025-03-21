@@ -21,7 +21,6 @@ class ProductController extends Controller
         $page = $_GET['page'] ?? 1;
         $products = $pagination->getItemsPerPage($products, (int)$page);
         $links = $pagination->getLinks((int)$page);
-        // $this->dd($productsPerPage, $links);
 
         return $this->view('site/catalog', compact('products', 'categories', 'links'));
     }

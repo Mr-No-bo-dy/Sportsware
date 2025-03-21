@@ -30,7 +30,6 @@ class Pagination
         $numsTotalPage = $this->countTotalPage();
         $startLink = max(($currentPage - ($this->linksNum - 1) / 2), 1);
         $endLink = min(($currentPage + ($this->linksNum - 1) / 2), $numsTotalPage);
-        // var_dump($currentPage);
         $links = [];
 
         if($startLink > 1) {
