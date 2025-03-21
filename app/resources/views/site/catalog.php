@@ -37,6 +37,7 @@
                 </label>
             </p>
             <p><button type="submit">submit</button></p>
+            <a href="catalog">reset</a>
         </form>
     </div>
     <div class="grid">
@@ -56,6 +57,11 @@
                 </figcaption>
             </figure>
         <?php } ?>
+    </div>
+    <div class="pagination grid">
+            <?php foreach ($links as $link) {?>
+                <a href="?<?= isset($_GET['minPrice']) ? 'minPrice=' . $_GET['minPrice'] : ''?><?= isset($_GET['maxPrice']) ? '&maxPrice=' . $_GET['maxPrice'] : ''?><?= isset($_GET['title']) ? '&title=' . $_GET['title'] : ''?><?= isset($_GET['category_id']) ? '&category_id=' . $_GET['category_id'] : ''?><?= isset($_GET['sort']) ? '&sort=' . $_GET['sort'] : ''?>&page=<?= $link['page'] ?>"><?= $link['label'] ?></a>
+            <?php } ?>
     </div>
 
 </main>
