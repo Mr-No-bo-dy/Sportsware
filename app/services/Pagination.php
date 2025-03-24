@@ -15,48 +15,51 @@ class Pagination
         $this->linksNum = $linksNum;
     }
 
+    // Count total pages number
     public function countTotalPage(): int
     {
         return ceil($this->totalItems / $this->perPage);
     }
 
+    // Get items per page
     public function getItemsPerPage(array $items, int $pageNum): array
     {
-        return array_slice($items, ($pageNum - 1) * $this->perPage, $this->perPage);
+        return array_slice($items, $this->perPage * ($pageNum - 1), $this->perPage);
     }
 
-    public function getLinks(int $currentPage)
+    // Get pagination links
+    public function getLinks(int $currentPage): array
     {
         $numsTotalPage = $this->countTotalPage();
         $startLink = max(($currentPage - ($this->linksNum - 1) / 2), 1);
         $endLink = min(($currentPage + ($this->linksNum - 1) / 2), $numsTotalPage);
-        $links = [];
 
-        if($startLink > 1) {
+        $links = [];
+        if ($startLink > 1) {
             $links[] = [
                 'page' => 1,
                 'label' => '<<'
             ];
         }
-        if($currentPage > 1) {
+        if ($currentPage > 1) {
             $links[] = [
                 'page' => $currentPage - 1,
                 'label' => '<'
             ];
         }
-        for($i = $startLink; $i <= $endLink; $i++) {
+        for ($i = $startLink; $i <= $endLink; $i++) {
             $links[] = [
                 'page' => $i,
                 'label' => $i
             ];
         }
-        if($currentPage < $numsTotalPage) {
+        if ($currentPage < $numsTotalPage) {
             $links[] = [
                 'page' => $currentPage + 1,
                 'label' => '>'
             ];
         }
-        if($endLink < $numsTotalPage) {
+        if ($endLink < $numsTotalPage) {
             $links[] = [
                 'page' => $numsTotalPage,
                 'label' => '>>'
@@ -64,6 +67,5 @@ class Pagination
         }
 
         return $links;
-        
     }
 }
